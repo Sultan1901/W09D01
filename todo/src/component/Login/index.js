@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
-import cors from "cors";
 import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
    const [local, setLocal] = useState("");
+   const navigate = useNavigate()
 
   const login = async () => {
     try {
@@ -19,7 +20,7 @@ const Login = () => {
         localStorage.setItem("token", result.data.token);
          
       }
-
+navigate('/task')
       console.log(result.data.token);
     } catch (error) {
       console.log(error);
@@ -50,6 +51,9 @@ const Login = () => {
         ></input>
         <button onClick={login}>Login</button>
       </>
+      <h3>
+        <Link to="/task">Tasks</Link>
+      </h3>
     </div>
   );
 };

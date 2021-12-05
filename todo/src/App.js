@@ -1,25 +1,26 @@
 import "./App.css";
 import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import cors from "cors";
-// import Login from "./component/Login"
 import Register from "./component/Register";
 import Login from "./component/Login";
-import Task from "./component/task";
+import Task from "./component/Task";
+import { Route , Routes } from "react-router-dom"
 
-
-
-import {BrowserRouter as Route , Routes , Link} from "react-router-dom"
 
 function App() {
   
 
   return (
-    <div>
-      <Register />
-      <Login />
-      <Task />
+    <div >
+      
+      
+      <Routes>
+        <Route excat path="/" element={<Register />} />
+
+        <Route excat path="/Login" element={<Login />} />
+
+        <Route excat path="/Task" element={<Task />} />
+      </Routes>
+      
     </div>
   );
 }
