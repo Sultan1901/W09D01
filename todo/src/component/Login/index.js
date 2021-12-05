@@ -33,7 +33,7 @@ navigate('/task')
   }, []);
   return (
     <div>
-      <>
+      <div className="con">
         <h1>Login</h1>
         <input
           onChange={(e) => {
@@ -50,10 +50,9 @@ navigate('/task')
           placeholder="your password"
         ></input>
         <button onClick={login}>Login</button>
-      </>
-      <h3>
-        <Link to="/task">Tasks</Link>
-      </h3>
+
+        
+      </div>
     </div>
   );
 };

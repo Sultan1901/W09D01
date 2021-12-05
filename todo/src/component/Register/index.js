@@ -1,8 +1,10 @@
 import React from "react";
 import axios from "axios";
-import cors from "cors";
+import './style.css'
 import  {useState}  from "react";
 import {useNavigate , Link} from 'react-router-dom'
+
+
 
 const Register = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -21,29 +23,31 @@ const Register = () => {
 
   return (
     <div>
-      <h1>Register</h1>
-      <input
-        onChange={(e) => {
-          setUsername(e.target.value);
-        }}
-        type="text"
-        placeholder="username"
-      ></input>
-      <input
-        onChange={(e) => {
-          setLogemail(e.target.value);
-        }}
-        type="email"
-        placeholder="email"
-      ></input>
-      <input
-        onChange={(e) => {
-          setLogpassword(e.target.value);
-        }}
-        type="password"
-        placeholder="password"
-      ></input>
-      <button onClick={register}>register</button>
+      <div className="con">
+        <h1>Register</h1>
+        <input
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+          type="text"
+          placeholder="username"
+        ></input>
+        <input
+          onChange={(e) => {
+            setLogemail(e.target.value);
+          }}
+          type="email"
+          placeholder="email"
+        ></input>
+        <input
+          onChange={(e) => {
+            setLogpassword(e.target.value);
+          }}
+          type="password"
+          placeholder="password"
+        ></input>
+        <button onClick={register}>register</button>
+      </div>
     </div>
   );
 };
