@@ -6,18 +6,20 @@ const Task = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [task, setTask] = useState([]);
   useEffect(() => {
+    addtask();
     taskshow()
-    setNewtask();
+    
   }, []);
+   
+  
   const taskshow = async () => {
     const result = await axios.get(`${BASE_URL}/gettask`);
     setTask(result.data);
   };
-  const del = async () => {
+  const del = async (id) => {
     try {
-      const res = await axios.delete(`${BASE_URL}/delTask/:id`);
-      console.log(res);
-    } catch (error) {}
+      const res = await axios.delete(`${BASE_URL}/delTask/${id}`);
+    } catch (error) {console.log(error);}
   };
   const [newtask, setNewtask] = useState("");
   const addtask = async () => {
@@ -25,7 +27,9 @@ const Task = () => {
       const res = await axios.post(`${BASE_URL}/createtask`, {
         name: newtask,
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -44,7 +48,7 @@ const Task = () => {
         <ul>
           <li>
             {e.name}
-            <button onClick={del} key={e._id}>
+            <button onClick={()=>{del(e._id)}} >
               delete
             </button>
           </li>
