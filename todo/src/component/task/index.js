@@ -13,22 +13,28 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
        setTask(result.data);
         
     }
-
+const del = async () => {
+  try { const res = await axios.delete(`${BASE_URL}/delTask/:id`)
+  console.log(res);
+    
+  } catch (error) {
+    
+  }
+ 
+}
 
     return (
-        <div>
-            
-{task.map((e)=>(
+      <div>
+        <h1>Tasks</h1>
 
-
-<ul>
-<li>{e.name}</li>
-
-</ul>
-))}
-
-        </div>
-    )
+        {task.map((e,i) => (
+          <ul>
+            <li>{e.name}<button onClick={del} key={i._id} >delete</button></li>
+          {console.log(i)} </ul>
+         
+        ))}
+      </div>
+    );
 }
 
 export default Task
