@@ -44,7 +44,7 @@ const Task = () => {
         placeholder="add task"
       />{" "}
       <button onClick={addtask}>add</button>
-      {task.map((e, i) => (
+      {task.map((e) => (
         <ul>
           <li>
             {e.name}
@@ -56,7 +56,7 @@ const Task = () => {
               delete
             </button>
           </li>
-          {console.log(i)}{" "}
+        {" "}
         </ul>
       ))}
     </div>
